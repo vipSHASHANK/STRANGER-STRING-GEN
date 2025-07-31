@@ -4,6 +4,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 
 # Replace with your support group link
 SUPPORT_CHAT = "https://t.me/MASTIWITHFRIENDSXD"
+PING_IMG = "https://files.catbox.moe/520y6h.jpg"  # Replace with your custom image URL
 
 @Client.on_message(filters.command("ping") & filters.private)
 async def ping_handler(client: Client, message: Message):
