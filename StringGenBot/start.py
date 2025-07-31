@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
-from config import START_IMG, OWNER_ID, SUPPORT_CHAT
+from config import START_IMG, OWNER_ID, SUPPORT_CHAT, UPDATE_CHANNEL
 
 # Custom Filters
 def filter_cmd(cmd: str):
@@ -23,7 +23,7 @@ async def start(bot: Client, msg: Message):
         [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
         [
             InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton("ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_ID}" if str(OWNER_ID).isnumeric() else f"https://t.me/{OWNER_ID.lstrip('@')}"),
+            InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
         ],
         [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
     ]
@@ -54,7 +54,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.message.edit_text(
             text=GUIDE_TXT,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]]
+                [
+        [
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/{UPDATE_CHANNEL}"),
+        ],
+[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]]
             )
         )
 
@@ -74,7 +79,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
             [
                 InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
-                InlineKeyboardButton("ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_ID}" if str(OWNER_ID).isnumeric() else f"https://t.me/{OWNER_ID.lstrip('@')}"),
+                InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
             ],
             [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
         ]
