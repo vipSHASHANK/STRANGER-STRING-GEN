@@ -1,3 +1,4 @@
+from config import START_IMG
 from pyrogram.types import Message
 from telethon import TelegramClient
 from pyrogram import Client, filters
