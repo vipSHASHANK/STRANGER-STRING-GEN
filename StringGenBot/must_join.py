@@ -10,12 +10,12 @@ async def must_join_channel(bot: Client, msg: Message):
         return
 
     try:
-        # Check if the user is a member of the MUST_JOIN channel
+        # Check if user is already a member
         await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
 
     except UserNotParticipant:
         try:
-            # Generate channel link (username or invite)
+            # Prepare invite link
             if MUST_JOIN.startswith("-100"):
                 chat = await bot.get_chat(MUST_JOIN)
                 link = chat.invite_link
@@ -24,24 +24,24 @@ async def must_join_channel(bot: Client, msg: Message):
             else:
                 link = f"https://t.me/{MUST_JOIN}"
 
-            # Send join prompt
+            # Prompt to join
             await msg.reply_photo(
                 photo=START_IMG,
-                caption=f"""✦ » ғɪʀsᴛʟʏ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ғᴀᴍɪʟʏ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ.
-
+                caption=f"""**✦ » ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴏғғɪᴄɪᴀʟ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ.**
 ➲ [🔸 ᴏғғɪᴄᴇ 🔸]({link})
 
-ᴀғᴛᴇʀ ᴊᴏɪɴɪɴɢ ❖ /start ❖ ᴍᴇ ᴀɢᴀɪɴ 🌹!""",
+**ᴀғᴛᴇʀ ᴊᴏɪɴɪɴɢ, sᴇɴᴅ /start ᴀɢᴀɪɴ 🌹!**""",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton("ᴏғғɪᴄᴇ", url=link)]
                 ]),
+                parse_mode="Markdown",
                 disable_web_page_preview=True
             )
             await msg.stop_propagation()
 
         except ChatWriteForbidden:
-            # Bot can't write in private chat
+            # Can't send messages to the user
             return
 
     except ChatAdminRequired:
-        print(f"[ERROR] Promote the bot as admin in MUST_JOIN chat: {MUST_JOIN}")
+        print(f"[ERROR] Make sure the bot is admin in MUST_JOIN channel: {MUST_JOIN}")
