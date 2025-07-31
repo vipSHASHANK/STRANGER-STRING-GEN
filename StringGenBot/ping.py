@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from config import *
+from config import START_IMG, SUPPORT_CHAT
 
 BOT_START_TIME = time.time()
 
@@ -33,7 +33,7 @@ async def ping_handler(client: Client, message: Message):
     await temp.delete()
 
     await message.reply_photo(
-        photo=PING_IMG,
+        photo=START_IMG,
         caption=f"""⊚ ʜᴇʏ ʙᴀʙʏ !!
 ˹ sᴛʀɪɴɢ ꭙ ɢᴇɴᴇʀᴀᴛᴏʀ ˼ ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ғɪɴᴇ
 
