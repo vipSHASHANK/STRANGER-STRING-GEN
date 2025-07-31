@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
-from config import START_IMG, OWNER_ID
+from config import START_IMG, OWNER_ID, SUPPORT_CHAT
 
 # Custom Filters
 def filter_cmd(cmd: str):
@@ -22,7 +22,7 @@ async def start(bot: Client, msg: Message):
     START_BTN = [
         [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
         [
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/MASTIWITHFRIENDSXD"),
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
             InlineKeyboardButton("ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_ID}" if str(OWNER_ID).isnumeric() else f"https://t.me/{OWNER_ID.lstrip('@')}"),
         ],
         [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
@@ -73,7 +73,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         START_BTN = [
             [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
             [
-                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/MASTIWITHFRIENDSXD"),
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
                 InlineKeyboardButton("ᴏᴡɴᴇʀ", url=f"https://t.me/{OWNER_ID}" if str(OWNER_ID).isnumeric() else f"https://t.me/{OWNER_ID.lstrip('@')}"),
             ],
             [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
