@@ -22,8 +22,8 @@ async def start(bot: Client, msg: Message):
     START_BTN = [
         [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
         [
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=OWNER_ID),
         ],
         [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
     ]
@@ -34,6 +34,7 @@ async def start(bot: Client, msg: Message):
         caption=START_TXT,
         reply_markup=InlineKeyboardMarkup(START_BTN),
     )
+
 
 GUIDE_TXT = """✦ ʙᴀsɪᴄ ᴄᴏᴍᴍᴀɴᴅs
 
@@ -46,6 +47,7 @@ GUIDE_TXT = """✦ ʙᴀsɪᴄ ᴄᴏᴍᴍᴀɴᴅs
 
 ⦿ ᴊᴏɪɴ sᴜᴘᴘᴏʀᴛ ғᴏʀ ᴍᴏʀᴇ ᴜᴘᴅᴀᴛᴇs."""
 
+
 @Client.on_callback_query()
 async def cb_handler(client: Client, query: CallbackQuery):
     data = query.data
@@ -53,14 +55,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if data == "guide":
         await query.message.edit_text(
             text=GUIDE_TXT,
-            reply_markup=InlineKeyboardMarkup(
+            reply_markup=InlineKeyboardMarkup([
                 [
-        [
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
-            InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url="https://t.me/{UPDATE_CHANNEL}"),
-        ],
-[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]]
-            )
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
+                    InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/{UPDATE_CHANNEL}"),
+                ],
+                [InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]
+            ])
         )
 
     elif data == "start_menu":
@@ -78,13 +79,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
         START_BTN = [
             [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
             [
-                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
-                InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=config.OWNER_ID),
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
+                InlineKeyboardButton("ᴏᴡɴᴇʀ", user_id=OWNER_ID),
             ],
             [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")]
         ]
 
-        await query.message.edit_caption(
-            caption=START_TXT,
-            reply_markup=InlineKeyboardMarkup(START_BTN)
-        )
+        try:
+            await query.message.edit_caption(
+                caption=START_TXT,
+                reply_markup=InlineKeyboardMarkup(START_BTN)
+            )
+        except:
+            await query.message.edit_text(
+                text=START_TXT,
+                reply_markup=InlineKeyboardMarkup(START_BTN)
+            )
