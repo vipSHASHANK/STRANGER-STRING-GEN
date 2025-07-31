@@ -50,16 +50,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     if data == "guide":
         await query.message.edit_text(
-            text="""✦ ʙᴀsɪᴄ ᴄᴏᴍᴍᴀɴᴅs
-
-➻ ᴛʏᴘᴇ /gen ᴏʀ ᴛᴀᴘ ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ ғᴏʀ ɢᴇɴ sᴇssɪᴏɴ.
-
-➻ ᴛʏᴘᴇ /ping ᴄʜᴇᴄᴋ ʙᴏᴛ ᴜᴘᴛɪᴍᴇ
-➻ ᴛʏᴘᴇ /stats ғᴏʀ ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛ sᴛᴀᴛs
-
-➻ ᴛʏᴘᴇ /broadcast ᴛᴏ sᴇɴᴅ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ᴀʟʟ ᴜsᴇʀs + ᴄʜᴀᴛs (ᴏɴʟʏ ᴏᴡɴᴇʀ ᴄᴀɴ ᴜsᴇ)
-
-⦿ ᴊᴏɪɴ sᴜᴘᴘᴏʀᴛ ғᴏʀ ᴍᴏʀᴇ ᴜᴘᴅᴀᴛᴇs.""",
+            text=GUIDE_TXT,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]]
             )
