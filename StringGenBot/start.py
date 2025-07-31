@@ -24,7 +24,8 @@ async def start(bot: Client, msg: Message):
                 [
                     InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/MASTIWITHFRIENDSXD"),
                     InlineKeyboardButton("ᴏᴡɴᴇʀ", url="https://tg://user?id={OWNER_ID}")
-                ]
+                ],
+                [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", cack_data="guide")]
             ]
         ),
     )
@@ -60,7 +61,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
 ✦ » ᴘʟᴇᴀꜱᴇ ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴘʏᴛʜᴏɴ ʟɪʙʀᴀʀʏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ꜱᴛʀɪɴɢ ꜱᴇꜱꜱɪᴏɴ ꜰᴏʀ.
 
-✦ » ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ, ᴛʜᴇɴ ᴅᴍ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀ: [▪️sᴛʀᴀɴɢᴇʀ▪️](tg://user?id={OWNER_ID}) !""",
+✦ » ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ, ᴛʜᴇɴ ᴅᴍ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀ: [▪️sᴛʀᴀɴɢᴇʀ▪️](tg://user?id={OWNE!""",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [InlineKeyboardButton("▪ ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ ▪️", callback_data="generate")],
