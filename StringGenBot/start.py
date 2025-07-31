@@ -11,6 +11,7 @@ async def start(bot: Client, msg: Message):
     me2 = (await bot.get_me()).mention
 
     START_TXT = f"""**» ʜᴇʏ  {msg.from_user.mention}  ✤,
+
 » ɪ ᴀᴍ {me2},
 
 » ᴀɴ ᴏᴘᴇɴ sᴏᴜʀᴄᴇ sᴛʀɪɴɢ sᴇssɪᴏɴ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ, ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ ᴩʏʀᴏɢʀᴀᴍ.
@@ -68,6 +69,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         me2 = (await client.get_me()).mention
 
         START_TXT = f"""**» ʜᴇʏ  {query.from_user.mention}  ✤,
+
 » ɪ ᴀᴍ {me2},
 
 » Aɴ ᴏᴘᴇɴ sᴏᴜʀᴄᴇ sᴛʀɪɴɢ sᴇssɪᴏɴ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ, ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ ᴩʏʀᴏɢʀᴀᴍ.
