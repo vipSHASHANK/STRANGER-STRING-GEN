@@ -5,7 +5,7 @@ from config import OWNER_ID
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
 
-START_IMG = "https://telegra.ph/file/fd5c88d49d3f88ad6ffcd.jpg"  # Replace with your custom image URL
+START_IMG = "https://files.catbox.moe/520y6h.jpg"  # Replace with your custom image URL
 
 @Client.on_message(filter("start"))
 async def start(bot: Client, msg: Message):
