@@ -29,7 +29,7 @@ def get_readable_time(seconds: int) -> str:
 @Client.on_message(filters.command("ping") & filters.private)
 async def ping_handler(client: Client, message: Message):
     start = time.time()
-    temp = await message.reply("💫 ᴘɪɴɢɪɴɢ... ᴡᴀɪᴛ ʙᴀʙʏ")
+    temp = await message.reply("**💫 ᴘɪɴɢɪɴɢ... ᴡᴀɪᴛ ʙᴀʙʏ**")
     end = time.time()
     latency = (end - start) * 1000
     uptime = get_readable_time(time.time() - BOT_START_TIME)
@@ -38,13 +38,14 @@ async def ping_handler(client: Client, message: Message):
 
     await message.reply_photo(
         photo=START_IMG,
-        caption=f"""⊚ ʜᴇʏ ʙᴀʙʏ !!
+        caption=f"""**⊚ ʜᴇʏ ʙᴀʙʏ !!
+
 ˹ sᴛʀɪɴɢ ˣ ɢᴇɴᴇʀᴀᴛᴏʀ ˼ ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ғɪɴᴇ
 
 ➥ ᴘᴏɴɢ: `{latency:.3f} ms`
 ➥ ᴜᴘᴛɪᴍᴇ: {uptime}
 
-⦿ ᴄʀᴇᴀᴛᴇᴅ ʙʏ sᴛʀᴀɴɢᴇʀ""",
+⦿ ᴄʀᴇᴀᴛᴇᴅ ʙʏ sᴛʀᴀɴɢᴇʀ**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
