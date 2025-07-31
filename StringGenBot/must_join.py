@@ -1,4 +1,5 @@
-from config import MUST_JOIN, START_IMG
+from config import MUST_JOIN
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
@@ -8,40 +9,28 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 async def must_join_channel(bot: Client, msg: Message):
     if not MUST_JOIN:
         return
-
     try:
-        # Check if user is already a member
-        await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
-
-    except UserNotParticipant:
         try:
-            # Prepare invite link
-            if MUST_JOIN.startswith("-100"):
-                chat = await bot.get_chat(MUST_JOIN)
-                link = chat.invite_link
-                if not link:
-                    link = await bot.export_chat_invite_link(MUST_JOIN)
+            await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
+        except UserNotParticipant:
+            if MUST_JOIN.isalpha():
+                link = "https://t.me/" + MUST_JOIN
             else:
-                link = f"https://t.me/{MUST_JOIN}"
-
-            # Prompt to join
-            await msg.reply_photo(
-                photo=START_IMG,
-                caption=f"""**✦ » ᴘʟᴇᴀsᴇ ᴊᴏɪɴ ᴏᴜʀ ᴏғғɪᴄɪᴀʟ ᴄʜᴀɴɴᴇʟ ғɪʀsᴛ.**
-➲ [🔸 ᴏғғɪᴄᴇ 🔸]({link})
-
-**ᴀғᴛᴇʀ ᴊᴏɪɴɪɴɢ, sᴇɴᴅ /start ᴀɢᴀɪɴ 🌹!**""",
-                reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton("ᴏғғɪᴄᴇ", url=link)]
-                ]),
-                parse_mode="Markdown",
-                disable_web_page_preview=True
-            )
-            await msg.stop_propagation()
-
-        except ChatWriteForbidden:
-            # Can't send messages to the user
-            return
-
+                chat_info = await bot.get_chat(MUST_JOIN)
+                link = chat_info.invite_link
+            try:
+                await msg.reply_photo(
+                    photo="https://files.catbox.moe/520y6h.jpg", caption=f"✦ » ғɪʀsᴛʟʏ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴏᴜʀ ғᴀᴍɪʟʏ ᴛʜᴇɴ ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ [🔸 ᴏғғɪᴄᴇ 🔸]({link}). ᴀғᴛᴇʀ ᴊᴏɪɴ ❖ /start ❖ ᴍᴇ ᴀɢᴀɪɴ 🌹!",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("🔶 ᴏғғɪᴄᴇ 🔶", url=link),
+                            ]
+                        ]
+                    )
+                )
+                await msg.stop_propagation()
+            except ChatWriteForbidden:
+                pass
     except ChatAdminRequired:
-        print(f"[ERROR] Make sure the bot is admin in MUST_JOIN channel: {MUST_JOIN}")
+        print(f"Promote me as an admin in the MUST_JOIN chat : {MUST_JOIN} !")
