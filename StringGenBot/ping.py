@@ -49,8 +49,8 @@ async def ping_handler(client: Client, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
-                    InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_ping")
+                    InlineKeyboardButton("💌 sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
+                    InlineKeyboardButton("🗑️ ᴄʟᴏsᴇ", callback_data="close_ping")
                 ]
             ]
         )
