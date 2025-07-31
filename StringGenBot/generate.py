@@ -64,7 +64,7 @@ gen_button = [
 @Client.on_message(filters.private & ~filters.forwarded & filters.command(["generate", "gen", "string", "str"]))
 async def main(_, msg: Message):
     await msg.reply_photo(
-        photo="https://files.catbox.moe/520y6h.jpg",  
+        photo=START_IMG,  
         caption=ask_ques,
         reply_markup=InlineKeyboardMarkup(buttons_ques)
     )
