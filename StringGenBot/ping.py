@@ -2,12 +2,8 @@ import time
 from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from config import *
 
-# Custom Links
-SUPPORT_CHAT = "https://t.me/MASTIWITHFRIENDSXD"
-PING_IMG = "https://files.catbox.moe/520y6h.jpg"  # Custom image link
-
-# Uptime tracker
 BOT_START_TIME = time.time()
 
 def get_readable_time(seconds: int) -> str:
@@ -39,16 +35,16 @@ async def ping_handler(client: Client, message: Message):
     await message.reply_photo(
         photo=PING_IMG,
         caption=f"""⊚ ʜᴇʏ ʙᴀʙʏ !!
-˹ 𝛅ᴛʀɪηɢ ꭙ ɢєηєʀᴧᴛσʀ ˼ ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ғɪɴᴇ
+˹ sᴛʀɪɴɢ ꭙ ɢᴇɴᴇʀᴀᴛᴏʀ ˼ ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ғɪɴᴇ
 
 ➥ ᴘᴏɴɢ: `{latency:.3f} ms`
 ➥ ᴜᴘᴛɪᴍᴇ: {uptime}
 
-⦿ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴀʟᴘʜᴀ-ʙᴀʙʏ""",
+⦿ ᴄʀᴇᴀᴛᴇᴅ ʙʏ sᴛʀᴀɴɢᴇʀ""",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("🔸 Support", url=SUPPORT_CHAT)],
-                [InlineKeyboardButton("❌ Close", callback_data="close_ping")]
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=SUPPORT_CHAT),
+                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_ping")
             ]
         )
     )
@@ -59,4 +55,4 @@ async def close_ping_cb(_, query: CallbackQuery):
     try:
         await query.message.delete()
     except:
-        await query.answer("❌ Can't delete", show_alert=True)
+        await query.answer(" ᴄᴀɴ'ᴛ ᴅᴇʟᴇᴛᴇᴅ", show_alert=True)
