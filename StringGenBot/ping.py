@@ -25,7 +25,7 @@ def get_readable_time(seconds: int) -> str:
 @Client.on_message(filters.command("ping") & filters.private)
 async def ping_handler(client: Client, message: Message):
     start = time.time()
-    temp = await message.reply("💫 Pinging...")
+    temp = await message.reply("💫 ᴘɪɴɢɪɴɢ ᴡᴀɪᴛ ʙᴀʙʏ...")
     end = time.time()
     latency = (end - start) * 1000
     uptime = get_readable_time(time.time() - BOT_START_TIME)
