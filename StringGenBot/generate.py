@@ -59,8 +59,12 @@ gen_button = [
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command(["generate", "gen", "string", "str"]))
-async def main(_, msg):
-    await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
+async def main(_, msg: Message):
+    await msg.reply_photo(
+        photo="https://telegra.ph/file/58c1d63009fd61d0c1d9d.jpg",  
+        caption=ask_ques,
+        reply_markup=InlineKeyboardMarkup(buttons_ques)
+    )
 
 
 async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: bool = False, is_bot: bool = False):
