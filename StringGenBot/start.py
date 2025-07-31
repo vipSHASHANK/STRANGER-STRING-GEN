@@ -1,11 +1,9 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, CallbackQuery
-from config import OWNER_ID
+from config import *
 
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
-
-START_IMG = "https://files.catbox.moe/520y6h.jpg"  # Replace with your custom image URL
 
 @Client.on_message(filter("start"))
 async def start(bot: Client, msg: Message):
@@ -22,12 +20,10 @@ async def start(bot: Client, msg: Message):
 
 ✦ » ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏ ʜᴇʟᴘ, ᴛʜᴇɴ ᴅᴍ ᴛᴏ ᴍʏ ᴏᴡɴᴇʀ: [▪️sᴛʀᴀɴɢᴇʀ▪️](tg://user?id={OWNER_ID}) !""",
         reply_markup=InlineKeyboardMarkup(
-            [
-                [InlineKeyboardButton("▪ ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ ▪️", callback_data="generate")],
-                [InlineKeyboardButton("📘 ɢᴜɪᴅᴇ", callback_data="guide")],
+            [InlineKeyboardButton("ɢᴇɴᴇʀᴀᴛᴇ sᴛʀɪɴɢ", callback_data="generate")],
                 [
-                    InlineKeyboardButton("🔸 sᴜᴘᴘᴏʀᴛ 🔸", url="https://t.me/MASTIWITHFRIENDSXD"),
-                    InlineKeyboardButton("▫️ ᴜᴘᴅᴀᴛᴇs ▫️", url="https://t.me/SHIVANSH474")
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/MASTIWITHFRIENDSXD"),
+                    InlineKeyboardButton("ᴏᴡɴᴇʀ", url="https://tg://user?id={OWNER_ID}")
                 ]
             ]
         ),
