@@ -1,42 +1,56 @@
 {
-  "name": "🧿𝐒𝐓𝐑𝐀𝐍𝐆𝐄𝐑 𝐒𝐓𝐑𝐈𝐍𝐆 𝐁𝐎𝐓🧿",
-  "description": "A Telegram Bot to generate Telethon and Pyrogram String Sessions.",
+  "name": "🧿 𝐒𝐓𝐑𝐀𝐍𝐆𝐄𝐑 𝐒𝐓𝐑𝐈𝐍𝐆 𝐁𝐎𝐓 🧿",
+  "description": "A Telegram Bot to generate Pyrogram & Telethon string sessions easily.",
   "logo": "https://te.legra.ph/file/8e779ca298fb47f368f2b.jpg",
   "keywords": [
     "telegram",
     "bot",
     "python",
-    "pyrogram"
+    "pyrogram",
+    "telethon",
+    "string session"
   ],
-    "env": {
-        "BOT_TOKEN": {
-            "description": "Get this value from @BotFather",
-            "required": true
-        },  
-        "MUST_JOIN": {
-            "description": "Username of a group or channel for which you want to set force sub.(without @)",
-            "required": true      
-        }, 
-        "MONGO_URL": {
-            "description": "mongo db url here",
-            "required": true
-        },
-        "API_ID": {
-            "description": "telegram api id here",
-            "required": true
-        },
-        "OWNER_ID": {
-            "description": "Telegram id of the person who will known as owner of the bot.",
-            "required": true
-        }, 
-        "API_HASH": {
-            "description": "telegram api hash here",
-            "required": true
-        }
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Get this token from @BotFather",
+      "required": true
     },
-    "addons": [
-        {
-            "plan": "heroku-postgresql"
-        }
-    ]
+    "API_ID": {
+      "description": "Telegram API ID from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API Hash from https://my.telegram.org",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram numeric user ID (as owner)",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "Your MongoDB URI string (starting with mongodb+srv...)",
+      "required": true
+    },
+    "MUST_JOIN": {
+      "description": "Channel or group username for force join (without @)",
+      "required": true
+    },
+    "START_IMG": {
+      "description": "Link to an image shown in /start (JPG or PNG)",
+      "required": false
+    },
+    "SUPPORT_CHAT": {
+      "description": "Support group username (without @)",
+      "required": false
+    },
+    "UPDATE_CHANNEL": {
+      "description": "Update channel username (without @)",
+      "required": false
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
 }
