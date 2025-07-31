@@ -47,6 +47,7 @@ buttons_ques = [
         InlineKeyboardButton("🔸ᴘʏʀᴏɢʀᴀᴍ ʙᴏᴛ🔸", callback_data="pyrogram_bot"),
         InlineKeyboardButton("🔹ᴛᴇʟᴇᴛʜᴏɴ ʙᴏᴛ🔹", callback_data="telethon_bot"),
     ],
+    [InlineKeyboardButton("⬅️ ʙᴀᴄᴋ", callback_data="start_menu")]
 ]
 
 gen_button = [
