@@ -43,7 +43,7 @@ async def ping_handler(client: Client, message: Message):
 ⦿ ᴄʀᴇᴀᴛᴇᴅ ʙʏ sᴛʀᴀɴɢᴇʀ""",
         reply_markup=InlineKeyboardMarkup(
             [
-                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=SUPPORT_CHAT),
+                InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url="https://t.me/{SUPPORT_CHAT}"),
                 InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_ping")
             ]
         )
